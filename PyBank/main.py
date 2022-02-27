@@ -35,6 +35,30 @@ with open(budget_data) as revenue_data:
             greatest_increase[0] = row["Date"]
             greatest_increase[1] = revenue_change 
     
+        #Calculate the greatest decrease 
+        if (revenue_change > greatest_increase[1]):
+            greatest_decrease[0] = row["Date"]
+            greatest_decrease[1] = revenue_change 
 
-        #Calculate the greatest decrease
-            
+ #Calculate the average revenue change
+ revenue_avg = sum(revenue_change_list) / len(revenue_change_list)
+
+
+ #Generate Output Analysis     
+ Analysis_output = (
+     f"\nFinancial Analysis\n"
+     f"---------------------------\n"
+     f"Total Months: {total_months}\n"
+     f"Total Revenue: ${total_revenue}\n"
+     f"Average Revenue Change: ${revenue_avg}\n"
+     f"Greatest Increase in Revenue: {greatest_increase[0]} (${greatest_increase[1]})\n"
+     f"Greatest Decrease in Revenue: {greatest_decrease[0]} (${greatest_decrease[1]})\n"  
+ )     
+
+#Print Output
+ print(Analysis_output)
+
+ #Export results to a beautiful text file
+ with open(Analysis_output, "w") as txt_file:
+     txt_file.write(Analysis_output)
+    
