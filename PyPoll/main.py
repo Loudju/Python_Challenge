@@ -1,6 +1,5 @@
 #My Dependencies
 import csv
-from functools import total_ordering
 import os
 
 #Files to load and output
@@ -91,5 +90,5 @@ with open(election_data) as election_data:
     print(winning_candidate_summary)
 
     #Save Winner's name to text file
-    txt_file.write(winning_candidate_summary)
+    #txt_file.write(winning_candidate_summary)
             
