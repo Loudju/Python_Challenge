@@ -4,8 +4,8 @@ from functools import total_ordering
 import os
 
 #Files to load and output
-election_data = "PyPoll/Resources/election_data.csv"
-voter_output = "PyPoll/electionanalysis/electionanalysis.txt"
+election_data = os.path.join("PyPoll/Resources/election_data.csv")
+voter_output = os.path.join("PyPoll/electionanalysis/electionanalysis.txt")
 
 #Total Vote Counter
 total_votes = 0
@@ -48,7 +48,7 @@ with open(election_data) as election_data:
         candidate_votes[candidate_name] = candidate_votes[candidate_name] + 1 
 
     #Print the results and export data to text file
-    with open(election_data, "w") as election_data:
+    with open(voter_output, "w") as txt_file:
 
     #Print final vote count
         election_results =  (
@@ -61,7 +61,7 @@ with open(election_data) as election_data:
     
 
     #Save final vote count to text file
-    txt_file.write(election_results)
+    #txt_file.write(voter_output)
 
     #Find winner by looping through all counts
     for candidate in candidate_votes:
@@ -80,7 +80,7 @@ with open(election_data) as election_data:
         print(voter_output, end="")
 
        #Save each candidates voter count and percentage to text file
-        txt_file.write(voter_output)
+        #txt_file.write(voter_output)
 
     #Print the winning candidate
     winning_candidate_summary = (
