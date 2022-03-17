@@ -5,7 +5,7 @@ import os
 
 #Files to load and output
 election_data = "PyPoll/Resources/election_data.csv"
-voter_output = "PyPoll/Analysis.txt"
+voter_output = "PyPoll/electionanalysis/electionanalysis.txt"
 
 #Total Vote Counter
 total_votes = 0
@@ -33,7 +33,7 @@ with open(election_data) as election_data:
         total_votes = total_votes + 1
 
         #Get candidate name from each row
-        candidate_name = int(input([2]))
+        candidate_name = row[2]
 
         #if candidate does not match any existing candidate
         if candidate_name not in candidate_options:
@@ -48,7 +48,7 @@ with open(election_data) as election_data:
         candidate_votes[candidate_name] = candidate_votes[candidate_name] + 1 
 
     #Print the results and export data to text file
-    with open(election_data, "w") as txt_file:
+    with open(election_data, "w") as election_data:
 
     #Print final vote count
         election_results =  (
