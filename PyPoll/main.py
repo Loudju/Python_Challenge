@@ -90,5 +90,5 @@ with open(election_data) as election_data:
     print(winning_candidate_summary)
 
     #Save Winner's name to text file
-    #txt_file.write(winning_candidate_summary)
-            
+    with open(voter_output, "w") as txt_file:
+        txt_file.write(winning_candidate_summary)
